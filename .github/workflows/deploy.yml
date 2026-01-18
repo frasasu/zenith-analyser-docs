@@ -1,50 +1,64 @@
-name: Deploy to GitHub Pages
+name: Deploy Zenith Documentation
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   workflow_dispatch:
 
+# Permissions requises pour GitHub Pages
 permissions:
-  contents: read
   pages: write
   id-token: write
 
+# Empêcher les déploiements concurrents
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
 jobs:
+  # Job de build
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Pages
+      - name: Setup GitHub Pages
         uses: actions/configure-pages@v4
+        with:
+          # Ce paramètre active Pages si ce n'est pas déjà fait
+          enablement: true
 
-      - name: Verify index.html exists
+      - name: Vérifier les fichiers
         run: |
-          if [ ! -f "index.html" ]; then
-            echo "❌ ERROR: index.html not found!"
-            ls -la
+          echo "📂 Contenu du répertoire:"
+          ls -la
+          echo ""
+          echo "📄 Vérification d'index.html:"
+          if [ -f "index.html" ]; then
+            echo "✅ index.html existe"
+            echo "📏 Taille: $(wc -l < index.html) lignes"
+          else
+            echo "❌ ERREUR: index.html n'existe pas!"
             exit 1
           fi
-          echo "✅ index.html found, size: $(wc -l < index.html) lines"
 
-      - name: Create .nojekyll file
-        run: touch .nojekyll
+      - name: Créer fichier .nojekyll
+        run: echo "" > .nojekyll
 
-      - name: Upload artifact
+      - name: Upload Pages Artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.'
+          path: "."
 
+  # Job de déploiement
   deploy:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    
     runs-on: ubuntu-latest
-    needs: build
-    
+    needs: build  # Attendre que le build soit terminé
+
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
