@@ -1,0 +1,26 @@
+# Global owners (révision de tout le code)
+*       @frasasu
+
+# Documentation spécifique
+*.md    @frasasu
+*.html  @frasasu
+
+# Configuration GitHub
+.github/         @frasasu
+.github/*.yml    @frasasu
+.github/*.yaml   @frasasu
+
+# Assets et ressources
+assets/          @frasasu
+assets/**/*.css  @frasasu
+assets/**/*.js   @frasasu
+assets/**/*.png  @frasasu
+assets/**/*.jpg  @frasasu
+
+# Fichiers de configuration
+package.json     @frasasu
+.gitignore       @frasasu
+LICENSE          @frasasu
+README.md        @frasasu
+CONTRIBUTING.md  @frasasu
+CNAME            @frasasu
