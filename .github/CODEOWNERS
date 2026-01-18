@@ -1,5 +1,7 @@
 # Global owners (révision de tout le code)
 *       @frasasu
+# PROTECTION DU FICHIER CODEOWNERS
+/.github/CODEOWNERS    @frasasu
 
 # Documentation spécifique
 *.md    @frasasu
