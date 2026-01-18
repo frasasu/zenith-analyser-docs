@@ -1,0 +1,1365 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zenith Analyser - Documentation Technique</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #2c3e50;
+            --secondary-blue: #3498db;
+            --accent-blue: #2980b9;
+            --light-blue: #ecf0f1;
+            --dark-gray: #2c3e50;
+            --medium-gray: #7f8c8d;
+            --light-gray: #bdc3c7;
+            --success-green: #27ae60;
+            --warning-orange: #f39c12;
+            --danger-red: #e74c3c;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --border-radius: 8px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        /* Header and Navigation */
+        header {
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue));
+            color: white;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .logo-icon {
+            font-size: 2rem;
+            color: #3498db;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 2rem;
+        }
+
+        .main-content {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 2.5rem;
+            overflow: hidden;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+        }
+
+        .toc {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .toc h3 {
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--light-blue);
+        }
+
+        .toc ul {
+            list-style: none;
+        }
+
+        .toc li {
+            margin-bottom: 0.5rem;
+        }
+
+        .toc a {
+            color: var(--medium-gray);
+            text-decoration: none;
+            display: block;
+            padding: 0.5rem 0;
+            border-left: 3px solid transparent;
+            transition: var(--transition);
+        }
+
+        .toc a:hover {
+            color: var(--secondary-blue);
+            border-left-color: var(--secondary-blue);
+            padding-left: 0.5rem;
+        }
+
+        .info-box {
+            background-color: #e8f4fc;
+            border-left: 4px solid var(--secondary-blue);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            margin: 2rem 0;
+        }
+
+        .warning-box {
+            background-color: #fef9e7;
+            border-left: 4px solid var(--warning-orange);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            margin: 2rem 0;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            color: var(--primary-blue);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            border-bottom: 3px solid var(--secondary-blue);
+            padding-bottom: 0.5rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            border-bottom: 2px solid var(--light-blue);
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+        }
+
+        p {
+            margin-bottom: 1.2rem;
+            text-align: justify;
+        }
+
+        /* Code blocks */
+        .code-container {
+            position: relative;
+            margin: 1.5rem 0;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .code-header {
+            background: var(--dark-gray);
+            color: white;
+            padding: 0.75rem 1rem;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.9rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .copy-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: var(--transition);
+        }
+
+        .copy-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        pre {
+            margin: 0;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            overflow-x: auto;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        code {
+            font-family: 'Roboto Mono', monospace;
+            background: #f1f3f4;
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+            font-size: 0.9rem;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            box-shadow: var(--shadow);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        th {
+            background-color: var(--primary-blue);
+            color: white;
+            font-weight: 600;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        tr:hover {
+            background-color: #e8f4fc;
+        }
+
+        /* Lists */
+        ul, ol {
+            margin-left: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-list li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .feature-list i {
+            color: var(--secondary-blue);
+            margin-right: 1rem;
+            margin-top: 0.2rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-blue);
+            color: white;
+            padding: 3rem 2rem;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            color: white;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--secondary-blue);
+            padding-bottom: 0.5rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: white;
+            padding-left: 0.5rem;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #bdc3c7;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            
+            .sidebar {
+                position: static;
+                order: -1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                padding: 1rem;
+            }
+            
+            .logo {
+                margin-bottom: 1rem;
+            }
+            
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                position: absolute;
+                top: 1.5rem;
+                right: 1rem;
+            }
+            
+            .main-content {
+                padding: 1.5rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.7rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--secondary-blue);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: var(--shadow);
+            opacity: 0;
+            transition: var(--transition);
+            z-index: 999;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+        }
+
+        .back-to-top:hover {
+            background: var(--accent-blue);
+            transform: translateY(-3px);
+        }
+
+        /* Syntax highlighting */
+        .keyword { color: #0077aa; }
+        .string { color: #d14; }
+        .comment { color: #999; }
+        .function { color: #990055; }
+        .number { color: #099; }
+        .operator { color: #a67f59; }
+
+        /* Interactive elements */
+        .interactive-demo {
+            background: #f8f9fa;
+            border: 1px solid var(--light-gray);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .demo-controls {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .demo-btn {
+            background: var(--secondary-blue);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .demo-btn:hover {
+            background: var(--accent-blue);
+        }
+
+        /* Print styles */
+        @media print {
+            .sidebar, .mobile-menu-btn, .back-to-top, .copy-btn {
+                display: none !important;
+            }
+            
+            .container {
+                grid-template-columns: 1fr;
+                padding: 0;
+            }
+            
+            .main-content {
+                box-shadow: none;
+                padding: 0;
+            }
+            
+            pre {
+                white-space: pre-wrap;
+                word-wrap: break-word;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <i class="fas fa-chart-line logo-icon"></i>
+                <h1>Zenith Analyser</h1>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#introduction"><i class="fas fa-home"></i> Introduction</a></li>
+                <li><a href="#architecture"><i class="fas fa-sitemap"></i> Architecture</a></li>
+                <li><a href="#langage"><i class="fas fa-code"></i> Langage Zenith</a></li>
+                <li><a href="#api"><i class="fas fa-cogs"></i> API</a></li>
+                <li><a href="#simulation"><i class="fas fa-clock"></i> Simulation</a></li>
+                <li><a href="#heritage"><i class="fas fa-project-diagram"></i> Héritage</a></li>
+                <li><a href="#cli"><i class="fas fa-terminal"></i> CLI</a></li>
+                <li><a href="#integration"><i class="fas fa-link"></i> Intégration</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <main class="main-content fade-in">
+            <!-- Title -->
+            <h1>Zenith Analyser - Documentation Technique Complète</h1>
+            <p class="author"><strong>Auteur :</strong> François TUMUSAVYEYESU</p>
+            <p class="date"><strong>Date :</strong> 2026</p>
+            
+            <hr style="margin: 2rem 0; border: 0; height: 2px; background: linear-gradient(to right, transparent, var(--secondary-blue), transparent);">
+            
+            <!-- Abstract -->
+            <div class="info-box">
+                <h3><i class="fas fa-info-circle"></i> Résumé</h3>
+                <p><strong>Zenith Analyser</strong> représente une solution logicielle innovante et sophistiquée pour l'analyse, la simulation et la gestion de structures temporelles complexes. Cette bibliothèque Python, conçue avec une architecture modulaire et extensible, permet aux développeurs et aux data scientists de manipuler efficacement des lois temporelles hiérarchiques exprimées dans le langage Zenith spécifiquement créé pour ce domaine.</p>
+            </div>
+            
+            <!-- Table of Contents (for mobile) -->
+            <div class="toc mobile-toc" style="display: none;">
+                <h3>Sommaire</h3>
+                <ul id="mobileToc"></ul>
+            </div>
+            
+            <!-- Introduction -->
+            <section id="introduction">
+                <h2><i class="fas fa-star"></i> Introduction</h2>
+                
+                <div class="info-box">
+                    <p><strong>Note Importante :</strong> Zenith Analyser est distribué sous la licence Apache 2.0, garantissant une utilisation libre et flexible tout en offrant une protection juridique adéquate pour les projets commerciaux et open-source.</p>
+                </div>
+                
+                <p>Dans le domaine en constante évolution de l'analyse de données temporelles et de la modélisation d'événements chronologiques, la nécessité d'outils spécialisés capables de gérer des structures complexes et hiérarchiques devient de plus en plus critique. <strong>Zenith Analyser</strong> émerge comme une réponse élégante et puissante à ce besoin croissant.</p>
+                
+                <h3>Philosophie de conception et vision</h3>
+                <p>La philosophie de conception derrière Zenith Analyser s'articule autour de trois principes fondamentaux : la modularité, l'extensibilité et la robustesse. Chaque composant de la bibliothèque a été soigneusement architecturé pour fonctionner de manière indépendante tout en s'intégrant harmonieusement dans l'ensemble du système.</p>
+                
+                <h3>Caractéristiques principales</h3>
+                <div class="warning-box">
+                    <p><strong>Avertissement :</strong> Bien que Zenith Analyser soit conçu pour être robuste et fiable, les utilisateurs sont invités à valider systématiquement leurs modèles temporels pour des applications critiques où la précision chronologique est essentielle.</p>
+                </div>
+                
+                <ul class="feature-list">
+                    <li><i class="fas fa-check-circle"></i> <strong>Analyse syntaxique et lexicale avancée</strong> du langage Zenith, avec un parseur capable de traiter des structures imbriquées complexes.</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>Validation complète et exhaustive</strong> des structures temporelles, incluant des vérifications de cohérence sémantique.</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>Simulation d'événements chronologiques</strong> avec une précision temporelle exceptionnelle.</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>Système d'héritage hiérarchique sophistiqué</strong> entre cibles (targets).</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>Génération automatisée de rapports détaillés</strong> en format JSON.</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>Interface en ligne de commande complète</strong> (CLI) avec des options de configuration étendues.</li>
+                </ul>
+                
+                <h3>Installation et configuration</h3>
+                
+                <h4>Installation via PyPI (recommandée)</h4>
+                <div class="code-container">
+                    <div class="code-header">
+                        <span>Bash</span>
+                        <button class="copy-btn">Copier</button>
+                    </div>
+                    <pre><code>pip install zenith-analyser</code></pre>
+                </div>
+                
+                <h4>Installation depuis GitHub</h4>
+                <div class="code-container">
+                    <div class="code-header">
+                        <span>Bash</span>
+                        <button class="copy-btn">Copier</button>
+                    </div>
+                    <pre><code>git clone https://github.com/frasasu/zenith-analyser
+cd zenith-analyser
+pip install -e .</code></pre>
+                </div>
+            </section>
+            
+            <!-- Architecture -->
+            <section id="architecture">
+                <h2><i class="fas fa-sitemap"></i> Architecture de la bibliothèque</h2>
+                
+                <p>L'architecture de Zenith Analyser a été méticuleusement conçue selon les principes de séparation des préoccupations et de responsabilité unique. Chaque module a une fonction bien définie et des interfaces claires avec les autres composants du système.</p>
+                
+                <h3>Modules principaux et leurs responsabilités</h3>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Module</th>
+                            <th>Description et responsabilités principales</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>analyzers.py</code></td>
+                            <td>Cœur analytique du système, contenant les classes principales qui orchestrent l'analyse complète des structures temporelles.</td>
+                        </tr>
+                        <tr>
+                            <td><code>lexer.py</code></td>
+                            <td>Responsable de l'analyse lexicale, transformant le flux de caractères brut en une séquence de tokens significatifs.</td>
+                        </tr>
+                        <tr>
+                            <td><code>parser.py</code></td>
+                            <td>Implémente l'analyse syntaxique, construisant un Arbre de Syntaxe Abstraite (AST) à partir de la séquence de tokens.</td>
+                        </tr>
+                        <tr>
+                            <td><code>validator.py</code></td>
+                            <td>Fournit des mécanismes de validation sémantique complets, vérifiant la cohérence temporelle et l'existence des références.</td>
+                        </tr>
+                        <tr>
+                            <td><code>cli.py</code></td>
+                            <td>Implémente l'interface en ligne de commande complète avec des sous-commandes pour l'analyse, la validation, et la conversion.</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h3>Flux de traitement détaillé</h3>
+                <p>Le flux de traitement des données dans Zenith Analyser suit une séquence logique et prédictible qui garantit la transformation progressive et contrôlée du code source initial en analyses détaillées et exploitables.</p>
+                
+                <div class="interactive-demo">
+                    <h4><i class="fas fa-play-circle"></i> Diagramme du flux de traitement</h4>
+                    <div style="text-align: center; margin: 1.5rem 0; padding: 1.5rem; background: white; border-radius: var(--border-radius);">
+                        <div style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                            <div style="padding: 1rem; background: var(--light-blue); border-radius: var(--border-radius); font-weight: bold;">Code Zenith</div>
+                            <i class="fas fa-arrow-right"></i>
+                            <div style="padding: 1rem; background: #e8f4fc; border-radius: var(--border-radius); font-weight: bold;">Tokens</div>
+                            <i class="fas fa-arrow-right"></i>
+                            <div style="padding: 1rem; background: #d5e8f7; border-radius: var(--border-radius); font-weight: bold;">AST</div>
+                            <i class="fas fa-arrow-right"></i>
+                            <div style="padding: 1rem; background: #c2dcf4; border-radius: var(--border-radius); font-weight: bold;">Validation</div>
+                            <i class="fas fa-arrow-right"></i>
+                            <div style="padding: 1rem; background: var(--secondary-blue); color: white; border-radius: var(--border-radius); font-weight: bold;">Analyses</div>
+                        </div>
+                    </div>
+                    <div class="demo-controls">
+                        <button class="demo-btn" onclick="showStep(1)">Étape 1: Lexer</button>
+                        <button class="demo-btn" onclick="showStep(2)">Étape 2: Parser</button>
+                        <button class="demo-btn" onclick="showStep(3)">Étape 3: Validator</button>
+                        <button class="demo-btn" onclick="showStep(4)">Étape 4: Simulation</button>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Langage Zenith -->
+            <section id="langage">
+                <h2><i class="fas fa-code"></i> Le langage Zenith : Concepts fondamentaux</h2>
+                
+                <p>Le langage Zenith représente l'interface déclarative primaire entre l'utilisateur et le système d'analyse. Conçu spécifiquement pour décrire des structures temporelles complexes, il adopte une approche de programmation déclarative où l'utilisateur spécifie <em>ce qui</em> doit être modélisé plutôt que <em>comment</em> le modéliser.</p>
+                
+                <h3>Structure fondamentale</h3>
+                <p>Un document Zenith typique consiste en une collection hiérarchique de <strong>lois</strong> (<code>law</code>) et de <strong>cibles</strong> (<code>target</code>), organisées selon une structure arborescente qui reflète les relations logiques et temporelles du système modélisé.</p>
+                
+                <h4>Exemple de loi Zenith</h4>
+                <div class="code-container">
+                    <div class="code-header">
+                        <span>Zenith</span>
+                        <button class="copy-btn">Copier</button>
+                    </div>
+                    <pre><code><span class="keyword">law</span> nom_de_la_loi:
+    start_date:2024-03-15 at 09:30
+    period:2h45
+    Event:
+        reunion_ouverture:"Réunion d'ouverture et présentation des objectifs"
+        session_travail:"Session de travail collaborative"
+        pause_cafe:"Pause café et réseautage"
+    <span class="keyword">GROUP</span>:(reunion_ouverture 45m^10m - session_travail 60m^15m - pause_cafe 30m^5m)
+<span class="keyword">end_law</span></code></pre>
+                </div>
+                
+                <h4>Exemple de cible avec hiérarchie</h4>
+                <div class="code-container">
+                    <div class="code-header">
+                        <span>Zenith</span>
+                        <button class="copy-btn">Copier</button>
+                    </div>
+                    <pre><code><span class="keyword">target</span> projet_principal:
+    key:"PROJ-2024-001"
+    dictionnary:
+        revue_hebdo:"Revue hebdomadaire des progrès et des défis"
+        atelier_tech:"Atelier technique sur les nouvelles technologies"
+    
+    <span class="keyword">law</span> planification_phase1:
+        start_date:2024-04-01 at 08:00
+        period:3h
+        Event:
+            brief_journee:"Briefing de la journée et répartition des tâches"
+            travail_individuel:"Travail individuel sur les tâches assignées"
+        <span class="keyword">GROUP</span>:(brief_journee 30m^0 - travail_individuel 120m^15m)
+    <span class="keyword">end_law</span>
+<span class="keyword">end_target</span></code></pre>
+                </div>
+                
+                <h3>Concepts temporels fondamentaux</h3>
+                <ul>
+                    <li><strong>Chronocoherence</strong> : Durée effective d'un événement</li>
+                    <li><strong>Chronodispersion</strong> : Intervalle temporel entre la fin d'un événement et le début du suivant</li>
+                    <li><strong>Séquencement</strong> : Ordre des événements dans un groupe</li>
+                    <li><strong>Complétude temporelle</strong> : Somme des chronocoherences et chronodispersions</li>
+                </ul>
+            </section>
+            
+            <!-- API Principale -->
+            <section id="api">
+                <h2><i class="fas fa-cogs"></i> API Principale : Guide de référence</h2>
+                
+                <h3>ZenithAnalyser : Le point d'entrée central</h3>
+                <p>La classe <code>ZenithAnalyser</code> constitue le point d'entrée principal et le coordinateur central de toute l'infrastructure d'analyse. Elle orchestre l'ensemble du pipeline de traitement.</p>
+                
+                <h4>Initialisation</h4>
+                <div class="code-container">
+                    <div class="code-header">
+                        <span>Python</span>
+                        <button class="copy-btn">Copier</button>
+                    </div>
+                    <pre><code><span class="keyword">from</span> zenith.analyzers <span class="keyword">import</span> ZenithAnalyser
+
+<span class="comment"># Chargement du code source</span>
+<span class="keyword">with</span> <span class="function">open</span>(<span class="string">"model.zen"</span>, <span class="string">"r"</span>, encoding=<span class="string">"utf-8"</span>) <span class="keyword">as</span> source_file:
+    zenith_code = source_file.<span class="function">read</span>()
+
+<span class="comment"># Création de l'instance d'analyseur</span>
+analyser = <span class="function">ZenithAnalyser</span>(zenith_code)
+
+<span class="comment"># Vérification des erreurs</span>
+<span class="keyword">if</span> analyser.parser_errors:
+    <span class="function">print</span>(<span class="string">f"Erreurs de parsing détectées: {<span class="function">len</span>(analyser.parser_errors)}"</span>)</code></pre>
+                </div>
+                
+                <h4>Méthodes principales</h4>
+                <div class="code-container">
+                    <div class="code-header">
+                        <span>Python</span>
+                        <button class="copy-btn">Copier</button>
+                    </div>
+                    <pre><code><span class="comment"># Analyse d'une loi spécifique</span>
+analysis = analyser.<span class="function">law_description</span>(<span class="string">"sprint_planning"</span>)
+
+<span class="comment"># Analyse d'une cible</span>
+target_analysis = analyser.<span class="function">target_description</span>(<span class="string">"projet_principal"</span>)
+
+<span class="comment"># Analyse par niveau de population</span>
+population_analysis = analyser.<span class="function">population_description</span>(<span class="number">2</span>)
+
+<span class="comment"># Analyse complète du corpus</span>
+corpus_analysis = analyser.<span class="function">analyze_corpus</span>()
+
+<span class="comment"># Export JSON</span>
+analyser.<span class="function">export_json</span>(<span class="string">"analysis.json"</span>)</code></pre>
+                </div>
+            </section>
+            
+            <!-- Simulation -->
+            <section id="simulation">
+                <h2><i class="fas fa-clock"></i> Simulation temporelle avancée</h2>
+                
+                <p>Le système de simulation temporelle de Zenith Analyser repose sur une conception rigoureuse qui garantit la précision chronologique tout en maintenant la flexibilité nécessaire pour modéliser des scénarios complexes.</p>
+                
+                <h3>Représentation des durées et intervalles</h3>
+                <div class="code-container">
+                    <div class="code-header">
+                        <span>Python</span>
+                        <button class="copy-btn">Copier</button>
+                    </div>
+                    <pre><code><span class="keyword">from</span> zenith.utils <span class="keyword">import</span> point_to_minutes, minutes_to_point
+
+<span class="comment"># Conversion de durées</span>
+durations = [<span class="string">"30m"</span>, <span class="string">"2h"</span>, <span class="string">"1h30m"</span>, <span class="string">"45"</span>, <span class="string">"2h15m"</span>]
+
+<span class="keyword">for</span> duration_str <span class="keyword">in</span> durations:
+    minutes = <span class="function">point_to_minutes</span>(duration_str)
+    reconverted = <span class="function">minutes_to_point</span>(minutes)
+    <span class="function">print</span>(<span class="string">f"{duration_str} → {minutes} minutes → {reconverted}"</span>)</code></pre>
+                </div>
+                
+                <h3>Simulation d'événements complexes</h3>
+                <div class="code-container">
+                    <div class="code-header">
+                        <span>Python</span>
+                        <button class="copy-btn">Copier</button>
+                    </div>
+                    <pre><code><span class="keyword">def</span> <span class="function">simulate_law_complete</span>(analyser, law_name):
+    <span class="comment">"""Simulation complète d'une loi avec analyse détaillée."""</span>
+    <span class="keyword">try</span>:
+        <span class="comment"># Récupération des données de la loi</span>
+        law_data = analyser.law_analyser.<span class="function">get_law</span>(law_name)
+        
+        <span class="comment"># Simulation des événements</span>
+        simulated_events = analyser.<span class="function">_simulate_law_events</span>(law_data, dict_map)
+        
+        <span class="function">print</span>(<span class="string">f"Nombre d'événements simulés: {<span class="function">len</span>(simulated_events)}"</span>)
+        
+        <span class="keyword">return</span> simulated_events
+        
+    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:
+        <span class="function">print</span>(<span class="string">f"Erreur lors de la simulation: {e}"</span>)
+        <span class="keyword">return</span> <span class="keyword">None</span></code></pre>
+                </div>
+            </section>
+            
+            <!-- Héritage -->
+            <section id="heritage">
+                <h2><i class="fas fa-project-diagram"></i> Héritage hiérarchique</h2>
+                
+                <p>Le système d'héritage hiérarchique de Zenith Analyser constitue l'une de ses fonctionnalités les plus puissantes et distinctives. Il permet de modéliser des relations complexes entre différentes parties d'un système temporel.</p>
+                
+                <h3>Hiérarchie des cibles</h3>
+                <div class="code-container">
+                    <div class="code-header">
+                        <span>Python</span>
+                        <button class="copy-btn">Copier</button>
+                    </div>
+                    </div><pre><code><span class="keyword">def</span> <span class="function">analyze_complete_hierarchy</span>(analyser):
+    target_analyser = analyser.target_analyser
+    
+    <span class="comment"># Structure hiérarchique globale</span>
+    max_depth = target_analyser.<span class="function">get_max_generation</span>()
+    <span class="function">print</span>(<span class="string">f"Profondeur maximale: {max_depth} niveaux"</span>)
+    
+    <span class="keyword">for</span> depth <span class="keyword">in</span> <span class="function">range</span>(<span class="number">1</span>, max_depth + <span class="number">1</span>):
+        targets_at_level = target_analyser.<span class="function">get_targets_by_generation</span>(depth)
+        <span class="function">print</span>(<span class="string">f"Niveau {depth}: {<span class="function">len</span>(targets_at_level)} cibles"</span>)</code></pre>
+                
+                <h3>Résolution d'héritage</h3>
+                <div class="code-container">
+                    <div class="code-header">
+                        <span>Python</span>
+                        <button class="copy-btn">Copier</button>
+                    </div>
+                    <pre><code><span class="keyword">def</span> <span class="function">analyze_inheritance_resolution</span>(analyser, target_name):
+    <span class="comment">"""Analyse détaillée de la résolution d'héritage."""</span>
+    
+    <span class="comment"># Dictionnaire local</span>
+    local_dict = {item[<span class="string">'name'</span>]: item.<span class="function">get</span>(<span class="string">'description'</span>, <span class="string">''</span>) 
+                  <span class="keyword">for</span> item <span class="keyword">in</span> target_data.<span class="function">get</span>(<span class="string">'dictionnary'</span>, [])}
+    
+    <span class="comment"># Dictionnaire résolu (local écrase hérité)</span>
+    resolved_dict = {**inherited_dict, **local_dict}
+    
+    <span class="comment"># Conflits de résolution</span>
+    conflicts = <span class="function">set</span>(local_dict.<span class="function">keys</span>()) & <span class="function">set</span>(inherited_dict.<span class="function">keys</span>())
+    
+    <span class="keyword">if</span> conflicts:
+        <span class="function">print</span>(<span class="string">f"Conflits résolus: {<span class="function">len</span>(conflicts)}"</span>)</code></pre>
+                </div>
+            </section>
+            
+            <!-- CLI -->
+            <section id="cli">
+                <h2><i class="fas fa-terminal"></i> Interface en ligne de commande (CLI)</h2>
+                
+                <p>L'interface en ligne de commande de Zenith Analyser a été conçue pour offrir une expérience utilisateur intuitive tout en fournissant un accès complet à toutes les fonctionnalités avancées de la bibliothèque.</p>
+                
+                <h3>Commandes principales</h3>
+                <div class="code-container">
+                    <div class="code-header">
+                        <span>Bash</span>
+                        <button class="copy-btn">Copier</button>
+                    </div>
+                    <pre><code><span class="comment"># Affichage de l'aide générale</span>
+zenith --help
+
+<span class="comment"># Version du logiciel</span>
+zenith version
+
+<span class="comment"># Analyse de code Zenith</span>
+zenith analyze model.zen -o analysis.json
+
+<span class="comment"># Validation syntaxique</span>
+zenith validate model.zen
+
+<span class="comment"># Conversion entre formats</span>
+zenith convert model.zen analysis.json --from zenith --to json</code></pre>
+                </div>
+                
+                <h3>Exemples pratiques</h3>
+                <div class="code-container">
+                    <div class="code-header">
+                        <span>Bash</span>
+                        <button class="copy-btn">Copier</button>
+                    </div>
+                    <pre><code><span class="comment"># Pipeline d'analyse automatisé</span>
+<span class="keyword">if</span> zenith validate project_model.zen --strict; <span class="keyword">then</span>
+    zenith analyze project_model.zen --format json -o project_analysis.json
+<span class="keyword">fi</span>
+
+<span class="comment"># Analyse avec options avancées</span>
+zenith analyze complex_model.zen \
+    --target department_alpha \
+    --population <span class="number">3</span> \
+    --format json \
+    --pretty \
+    -o department_analysis.json</code></pre>
+                </div>
+            </section>
+            
+            <!-- Intégration -->
+            <section id="integration">
+                <h2><i class="fas fa-link"></i> Format de sortie et intégration</h2>
+                
+                <p>Les sorties JSON de Zenith Analyser suivent une structure rigoureuse et documentée qui facilite l'intégration avec d'autres systèmes. Cette structure a été conçue pour être à la fois riche en informations et facile à parser par des outils automatisés.</p>
+                
+                <h3>Structure JSON détaillée</h3>
+                <div class="code-container">
+                    <div class="code-header">
+                        <span>JSON</span>
+                        <button class="copy-btn">Copier</button>
+                    </div>
+                    <pre><code>{
+    "<span class="keyword">metadata</span>": {
+        "<span class="string">zenith_version</span>": "<span class="string">1.0.0</span>",
+        "<span class="string">analysis_timestamp</span>": "<span class="string">2024-01-15T14:30:45.123456</span>",
+        "<span class="string">source_file</span>": "<span class="string">model.zen</span>"
+    },
+    "<span class="keyword">corpus_statistics</span>": {
+        "<span class="string">total_laws</span>": <span class="number">15</span>,
+        "<span class="string">total_targets</span>": <span class="number">8</span>,
+        "<span class="string">total_events</span>": <span class="number">127</span>,
+        "<span class="string">total_duration_minutes</span>": <span class="number">4520</span>
+    },
+    "<span class="keyword">laws</span>": {
+        "<span class="string">sprint_planning</span>": {
+            "<span class="string">name</span>": "<span class="string">sprint_planning</span>",
+            "<span class="string">event_count</span>": <span class="number">4</span>,
+            "<span class="string">total_duration_minutes</span>": <span class="number">120</span>
+        }
+    }
+}</code></pre>
+                </div>
+                
+                <h3>Intégration avec des bases de données</h3>
+                <div class="code-container">
+                    <div class="code-header">
+                        <span>Python</span>
+                        <button class="copy-btn">Copier</button>
+                    </div>
+                    <pre><code><span class="keyword">import</span> sqlite3
+<span class="keyword">import</span> json
+
+<span class="keyword">class</span> <span class="class-name">ZenithDatabase</span>:
+    <span class="string">"""Classe pour l'intégration avec une base de données."""</span>
+    
+    <span class="keyword">def</span> <span class="function">__init__</span>(<span class="keyword">self</span>, db_path=<span class="string">"zenith_analysis.db"</span>):
+        <span class="keyword">self</span>.db_path = db_path
+        <span class="keyword">self</span>.<span class="function">_init_database</span>()
+    
+    <span class="keyword">def</span> <span class="function">store_analysis</span>(<span class="keyword">self</span>, analysis_json):
+        <span class="string">"""Stocke une analyse complète dans la base de données."""</span>
+        <span class="keyword">with</span> sqlite3.<span class="function">connect</span>(<span class="keyword">self</span>.db_path) <span class="keyword">as</span> conn:
+            cursor = conn.<span class="function">cursor</span>()
+            cursor.<span class="function">execute</span>(<span class="string">"""
+                INSERT INTO analyses (source_file, raw_json) 
+                VALUES (?, ?)
+            """</span>, (
+                analysis_json.<span class="function">get</span>(<span class="string">'metadata'</span>, {}).<span class="function">get</span>(<span class="string">'source_file'</span>),
+                json.<span class="function">dumps</span>(analysis_json)
+            ))</code></pre>
+                </div>
+            </section>
+            
+            <!-- Conclusion -->
+            <section id="conclusion">
+                <h2><i class="fas fa-flag-checkered"></i> Conclusion et perspectives</h2>
+                
+                <h3>Synthèse des capacités actuelles</h3>
+                <p>Zenith Analyser s'est imposé comme une solution complète et sophistiquée pour l'analyse de structures temporelles complexes. À travers cette documentation exhaustive, nous avons exploré les multiples facettes de cette bibliothèque remarquable.</p>
+                
+                <ul>
+                    <li><strong>Analyse lexicale et syntaxique avancée</strong> : Pipeline de traitement robuste capable de transformer du code Zenith déclaratif en structures de données exploitables.</li>
+                    <li><strong>Modélisation temporelle précise</strong> : Système de simulation d'événements permettant de modéliser des chronologies complexes.</li>
+                    <li><strong>Héritage hiérarchique sophistiqué</strong> : Mécanisme d'héritage entre cibles offrant une flexibilité remarquable.</li>
+                    <li><strong>Interface utilisateur complète</strong> : Combinaison d'une API Python riche et d'une interface en ligne de commande puissante.</li>
+                </ul>
+                
+                <h3>Perspectives de développement futures</h3>
+                <div class="info-box">
+                    <h4><i class="fas fa-road"></i> Feuille de route</h4>
+                    <ul>
+                        <li><strong>Optimisation des performances</strong> : Algorithmes plus efficaces pour le traitement de très grands corpus temporels.</li>
+                        <li><strong>Analyse prédictive</strong> : Intégration de modèles d'apprentissage automatique pour la prédiction de patterns temporels.</li>
+                        <li><strong>Interface graphique</strong> : Développement d'une interface web interactive pour la modélisation visuelle.</li>
+                        <li><strong>API REST</strong> : Exposition des fonctionnalités d'analyse via une API web.</li>
+                    </ul>
+                </div>
+                
+                <h3>Contributions et écosystème</h3>
+                <p>Zenith Analyser est un projet open-source qui bénéficie des contributions d'une communauté croissante d'utilisateurs et de développeurs.</p>
+                
+                <div class="warning-box">
+                    <p><strong>Ressources supplémentaires :</strong></p>
+                    <ul>
+                        <li><strong>Dépôt GitHub</strong> : <a href="https://github.com/frasasu/zenith-analyser" style="color: var(--accent-blue);">https://github.com/frasasu/zenith-analyser</a></li>
+                        <li><strong>Documentation en ligne</strong> : Documentation complète avec recherche et navigation améliorée (à venir)</li>
+                        <li><strong>Forum de discussion</strong> : Espace d'échange pour les utilisateurs (à venir)</li>
+                    </ul>
+                </div>
+                
+                <div style="text-align: center; margin: 3rem 0; padding: 2rem; background: linear-gradient(135deg, var(--light-blue), white); border-radius: var(--border-radius);">
+                    <h3 style="color: var(--primary-blue);">Bonne analyse !</h3>
+                    <p>Que vous soyez un utilisateur occasionnel cherchant à planifier des projets simples, ou un expert en analyse temporelle travaillant sur des systèmes complexes, Zenith Analyser offre les outils dont vous avez besoin.</p>
+                </div>
+            </section>
+        </main>
+        
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="toc">
+                <h3><i class="fas fa-list"></i> Sommaire</h3>
+                <ul id="tocList">
+                    <!-- Generated by JavaScript -->
+                </ul>
+            </div>
+            
+            <div class="info-box">
+                <h4><i class="fas fa-download"></i> Téléchargement rapide</h4>
+                <div style="margin-top: 1rem;">
+                    <button onclick="copyInstallCommand()" style="width: 100%; padding: 0.75rem; background: var(--secondary-blue); color: white; border: none; border-radius: var(--border-radius); cursor: pointer; margin-bottom: 0.5rem;">
+                        <i class="fas fa-copy"></i> Copier la commande d'installation
+                    </button>
+                    <button onclick="showQuickStart()" style="width: 100%; padding: 0.75rem; background: var(--success-green); color: white; border: none; border-radius: var(--border-radius); cursor: pointer;">
+                        <i class="fas fa-play"></i> Démarrage rapide
+                    </button>
+                </div>
+            </div>
+            
+            <div class="info-box">
+                <h4><i class="fas fa-code-branch"></i> Version actuelle</h4>
+                <p style="text-align: center; font-size: 1.5rem; font-weight: bold; color: var(--primary-blue); margin: 0.5rem 0;">v1.0.0</p>
+                <p style="text-align: center; font-size: 0.9rem; color: var(--medium-gray);">2026 Release</p>
+            </div>
+            
+            <div class="info-box">
+                <h4><i class="fas fa-book"></i> Documentation</h4>
+                <p>Cette documentation est également disponible en format PDF pour impression hors ligne.</p>
+                <button onclick="generatePDF()" style="width: 100%; padding: 0.75rem; background: var(--warning-orange); color: white; border: none; border-radius: var(--border-radius); cursor: pointer; margin-top: 0.5rem;">
+                    <i class="fas fa-file-pdf"></i> Générer PDF
+                </button>
+            </div>
+        </aside>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Zenith Analyser</h3>
+                <p>Solution innovante pour l'analyse, la simulation et la gestion de structures temporelles complexes.</p>
+                <p>Distribué sous licence Apache 2.0</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Liens rapides</h3>
+                <ul class="footer-links">
+                    <li><a href="#introduction">Introduction</a></li>
+                    <li><a href="#architecture">Architecture</a></li>
+                    <li><a href="#langage">Langage Zenith</a></li>
+                    <li><a href="#api">API Principale</a></li>
+                    <li><a href="#simulation">Simulation</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Ressources</h3>
+                <ul class="footer-links">
+                    <li><a href="https://github.com/frasasu/zenith-analyser" target="_blank">GitHub Repository</a></li>
+                    <li><a href="#" onclick="showExamples()">Exemples de code</a></li>
+                    <li><a href="#" onclick="showFAQ()">FAQ</a></li>
+                    <li><a href="#" onclick="showContact()">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>À propos</h3>
+                <p>Développé par François TUMUSAVYEYESU</p>
+                <p>Documentation technique complète - 2026</p>
+                <div style="margin-top: 1rem;">
+                    <a href="#" style="color: white; margin-right: 1rem;"><i class="fab fa-github fa-lg"></i></a>
+                    <a href="#" style="color: white; margin-right: 1rem;"><i class="fab fa-python fa-lg"></i></a>
+                    <a href="#" style="color: white;"><i class="fas fa-book fa-lg"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2026 Zenith Analyser. Tous droits réservés.</p>
+            <p>Cette documentation est mise à jour régulièrement. Dernière mise à jour : Janvier 2026</p>
+        </div>
+    </footer>
+    
+    <!-- Back to top button -->
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+    
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+            this.innerHTML = navLinks.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Generate table of contents
+        function generateTOC() {
+            const tocList = document.getElementById('tocList');
+            const mobileToc = document.getElementById('mobileToc');
+            const headers = document.querySelectorAll('h2, h3');
+            
+            let currentH2 = null;
+            
+            headers.forEach(header => {
+                const id = header.id || header.textContent.toLowerCase().replace(/[^\w]+/g, '-');
+                header.id = id;
+                
+                const listItem = document.createElement('li');
+                const link = document.createElement('a');
+                link.href = `#${id}`;
+                link.textContent = header.textContent.replace('★', '').trim();
+                
+                if (header.tagName === 'H2') {
+                    listItem.className = 'h2-item';
+                    currentH2 = listItem;
+                    
+                    const sublist = document.createElement('ul');
+                    sublist.className = 'h3-sublist';
+                    listItem.appendChild(sublist);
+                    
+                    link.innerHTML = '<i class="fas fa-chevron-right" style="margin-right: 0.5rem;"></i>' + link.textContent;
+                } else if (header.tagName === 'H3' && currentH2) {
+                    listItem.className = 'h3-item';
+                    const sublist = currentH2.querySelector('.h3-sublist');
+                    if (sublist) {
+                        sublist.appendChild(listItem);
+                        link.style.paddingLeft = '1.5rem';
+                        link.innerHTML = '<i class="fas fa-circle" style="font-size: 0.5rem; margin-right: 0.5rem;"></i>' + link.textContent;
+                    }
+                }
+                
+                listItem.appendChild(link);
+                
+                if (header.tagName === 'H2') {
+                    tocList.appendChild(listItem);
+                }
+                
+                // Also add to mobile TOC
+                const mobileItem = listItem.cloneNode(true);
+                if (mobileToc) {
+                    mobileToc.appendChild(mobileItem);
+                }
+            });
+            
+            // Show mobile TOC on small screens
+            if (window.innerWidth <= 768) {
+                document.querySelector('.mobile-toc').style.display = 'block';
+            }
+        }
+        
+        // Back to top button
+        const backToTop = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+        
+        backToTop.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Copy code buttons
+        document.addEventListener('DOMContentLoaded', function() {
+            const copyButtons = document.querySelectorAll('.copy-btn');
+            
+            copyButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const codeBlock = this.closest('.code-container').querySelector('code');
+                    const textToCopy = codeBlock.textContent;
+                    
+                    navigator.clipboard.writeText(textToCopy).then(() => {
+                        const originalText = this.textContent;
+                        this.textContent = 'Copié!';
+                        this.style.background = 'var(--success-green)';
+                        
+                        setTimeout(() => {
+                            this.textContent = originalText;
+                            this.style.background = '';
+                        }, 2000);
+                    });
+                });
+            });
+            
+            // Generate TOC
+            generateTOC();
+            
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Close mobile menu if open
+                        if (window.innerWidth <= 768) {
+                            document.getElementById('navLinks').classList.remove('active');
+                            document.getElementById('mobileMenuBtn').innerHTML = '<i class="fas fa-bars"></i>';
+                        }
+                    }
+                });
+            });
+        });
+        
+        // Interactive demo functions
+        function showStep(step) {
+            const steps = [
+                "Étape 1: Analyse lexicale (Lexer) - Transformation du code source en tokens élémentaires.",
+                "Étape 2: Analyse syntaxique (Parser) - Construction de l'Arbre de Syntaxe Abstraite (AST).",
+                "Étape 3: Validation sémantique - Vérification de la cohérence logique et temporelle.",
+                "Étape 4: Simulation et analyse - Génération des chronologies et calcul des métriques."
+            ];
+            
+            alert(steps[step - 1]);
+        }
+        
+        // Utility functions
+        function copyInstallCommand() {
+            navigator.clipboard.writeText('pip install zenith-analyser').then(() => {
+                alert('Commande d\'installation copiée dans le presse-papier!');
+            });
+        }
+        
+        function showQuickStart() {
+            const quickStart = `
+DÉMARRAGE RAPIDE ZENITH ANALYSER
+
+1. Installation:
+   pip install zenith-analyser
+
+2. Créer un fichier .zen:
+   law mon_premier_modele:
+     start_date:2024-01-01 at 09:00
+     period:2h
+     Event:
+       reunion:"Réunion de lancement"
+       travail:"Session de travail"
+     GROUP:(reunion 45m^15m - travail 60m^0)
+   end_law
+
+3. Analyser le modèle:
+   zenith analyze mon_modele.zen --format json
+
+4. Explorer avec Python:
+   from zenith.analyzers import ZenithAnalyser
+   analyser = ZenithAnalyser(code_zenith)
+   print(analyser.analyze_corpus())
+`;
+            alert(quickStart);
+        }
+        
+        function generatePDF() {
+            alert('Fonctionnalité PDF à implémenter. Pour le moment, utilisez l\'impression du navigateur (Ctrl+P).');
+            // In a real implementation, this would generate a PDF version
+        }
+        
+        function showExamples() {
+            alert('Exemples disponibles sur le dépôt GitHub: https://github.com/frasasu/zenith-analyser/examples');
+        }
+        
+        function showFAQ() {
+            alert('FAQ à venir dans la prochaine version de la documentation.');
+        }
+        
+        function showContact() {
+            alert('Pour toute question, ouvrez une issue sur GitHub ou contactez l\'auteur via le dépôt.');
+        }
+        
+        // Highlight current section in TOC
+        window.addEventListener('scroll', function() {
+            const headers = document.querySelectorAll('h2, h3');
+            let currentSection = '';
+            
+            headers.forEach(header => {
+                const headerTop = header.offsetTop;
+                if (scrollY >= headerTop - 150) {
+                    currentSection = header.id;
+                }
+            });
+            
+            document.querySelectorAll('#tocList a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${currentSection}`) {
+                    link.classList.add('active');
+                    link.style.color = 'var(--secondary-blue)';
+                    link.style.borderLeftColor = 'var(--secondary-blue)';
+                    link.style.paddingLeft = '0.5rem';
+                } else {
+                    link.style.color = '';
+                    link.style.borderLeftColor = '';
+                    link.style.paddingLeft = '';
+                }
+            });
+        });
+        
+        // Responsive adjustments
+        window.addEventListener('resize', function() {
+            if (window.innerWidth <= 768) {
+                document.querySelector('.mobile-toc').style.display = 'block';
+            } else {
+                document.querySelector('.mobile-toc').style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

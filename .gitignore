@@ -1,0 +1,65 @@
+# Simple .gitignore for documentation project
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Node dependencies
+node_modules/
+
+# Build outputs
+_site/
+build/
+dist/
+public/
+out/
+
+# Environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
+
+# Backup files
+*.bak
+*.backup
+
+# Archives
+*.zip
+*.tar
+*.gz
+
+# Local preview
+.preview/
+.serve/
+
+# Specific to documentation
+.jekyll-cache/
+.mdlrc.style.rb
+
+# Keep these
+!.gitkeep
