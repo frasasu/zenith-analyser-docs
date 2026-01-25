@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zenith Analyser - Documentation Technique</title>
+    <title>Zenith Analyzer - Technical Documentation</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
@@ -521,7 +521,7 @@
         <div class="header-content">
             <div class="logo">
                 <i class="fas fa-chart-line logo-icon"></i>
-                <h1>Zenith Analyser</h1>
+                <h1>Zenith Analyzer</h1>
             </div>
             <button class="mobile-menu-btn" id="mobileMenuBtn">
                 <i class="fas fa-bars"></i>
@@ -529,12 +529,12 @@
             <ul class="nav-links" id="navLinks">
                 <li><a href="#introduction"><i class="fas fa-home"></i> Introduction</a></li>
                 <li><a href="#architecture"><i class="fas fa-sitemap"></i> Architecture</a></li>
-                <li><a href="#langage"><i class="fas fa-code"></i> Langage Zenith</a></li>
+                <li><a href="#language"><i class="fas fa-code"></i> Zenith Language</a></li>
                 <li><a href="#api"><i class="fas fa-cogs"></i> API</a></li>
                 <li><a href="#simulation"><i class="fas fa-clock"></i> Simulation</a></li>
-                <li><a href="#heritage"><i class="fas fa-project-diagram"></i> Héritage</a></li>
+                <li><a href="#inheritance"><i class="fas fa-project-diagram"></i> Inheritance</a></li>
                 <li><a href="#cli"><i class="fas fa-terminal"></i> CLI</a></li>
-                <li><a href="#integration"><i class="fas fa-link"></i> Intégration</a></li>
+                <li><a href="#integration"><i class="fas fa-link"></i> Integration</a></li>
             </ul>
         </div>
     </header>
@@ -543,21 +543,21 @@
     <div class="container">
         <main class="main-content fade-in">
             <!-- Title -->
-            <h1>Zenith Analyser - Documentation Technique Complète</h1>
-            <p class="author"><strong>Auteur :</strong> François TUMUSAVYEYESU</p>
+            <h1>Zenith Analyzer - Complete Technical Documentation</h1>
+            <p class="author"><strong>Author :</strong> François TUMUSAVYEYESU</p>
             <p class="date"><strong>Date :</strong> 2026</p>
             
             <hr style="margin: 2rem 0; border: 0; height: 2px; background: linear-gradient(to right, transparent, var(--secondary-blue), transparent);">
             
             <!-- Abstract -->
             <div class="info-box">
-                <h3><i class="fas fa-info-circle"></i> Résumé</h3>
-                <p><strong>Zenith Analyser</strong> représente une solution logicielle innovante et sophistiquée pour l'analyse, la simulation et la gestion de structures temporelles complexes. Cette bibliothèque Python, conçue avec une architecture modulaire et extensible, permet aux développeurs et aux data scientists de manipuler efficacement des lois temporelles hiérarchiques exprimées dans le langage Zenith spécifiquement créé pour ce domaine.</p>
+                <h3><i class="fas fa-info-circle"></i> Abstract</h3>
+                <p><strong>Zenith Analyzer</strong> represents an innovative and sophisticated software solution for the analysis, simulation and management of complex temporal structures. This Python library, designed with a modular and extensible architecture, allows developers and data scientists to efficiently manipulate hierarchical temporal laws expressed in the Zenith language specifically created for this domain.</p>
             </div>
             
             <!-- Table of Contents (for mobile) -->
             <div class="toc mobile-toc" style="display: none;">
-                <h3>Sommaire</h3>
+                <h3>Table of Contents</h3>
                 <ul id="mobileToc"></ul>
             </div>
             
@@ -566,44 +566,44 @@
                 <h2><i class="fas fa-star"></i> Introduction</h2>
                 
                 <div class="info-box">
-                    <p><strong>Note Importante :</strong> Zenith Analyser est distribué sous la licence Apache 2.0, garantissant une utilisation libre et flexible tout en offrant une protection juridique adéquate pour les projets commerciaux et open-source.</p>
+                    <p><strong>Important Note :</strong> Zenith Analyzer is distributed under the Apache 2.0 license, ensuring free and flexible use while providing adequate legal protection for commercial and open-source projects.</p>
                 </div>
                 
-                <p>Dans le domaine en constante évolution de l'analyse de données temporelles et de la modélisation d'événements chronologiques, la nécessité d'outils spécialisés capables de gérer des structures complexes et hiérarchiques devient de plus en plus critique. <strong>Zenith Analyser</strong> émerge comme une réponse élégante et puissante à ce besoin croissant.</p>
+                <p>In the constantly evolving field of temporal data analysis and chronological event modeling, the need for specialized tools capable of handling complex hierarchical structures is becoming increasingly critical. <strong>Zenith Analyzer</strong> emerges as an elegant and powerful response to this growing need.</p>
                 
-                <h3>Philosophie de conception et vision</h3>
-                <p>La philosophie de conception derrière Zenith Analyser s'articule autour de trois principes fondamentaux : la modularité, l'extensibilité et la robustesse. Chaque composant de la bibliothèque a été soigneusement architecturé pour fonctionner de manière indépendante tout en s'intégrant harmonieusement dans l'ensemble du système.</p>
+                <h3>Design philosophy and vision</h3>
+                <p>The design philosophy behind Zenith Analyzer revolves around three fundamental principles: modularity, extensibility, and robustness. Each component of the library has been carefully architected to function independently while integrating harmoniously into the overall system.</p>
                 
-                <h3>Caractéristiques principales</h3>
+                <h3>Main Features</h3>
                 <div class="warning-box">
-                    <p><strong>Avertissement :</strong> Bien que Zenith Analyser soit conçu pour être robuste et fiable, les utilisateurs sont invités à valider systématiquement leurs modèles temporels pour des applications critiques où la précision chronologique est essentielle.</p>
+                    <p><strong>Warning :</strong> Although Zenith Analyzer is designed to be robust and reliable, users are encouraged to systematically validate their temporal models for critical applications where chronological accuracy is essential.</p>
                 </div>
                 
                 <ul class="feature-list">
-                    <li><i class="fas fa-check-circle"></i> <strong>Analyse syntaxique et lexicale avancée</strong> du langage Zenith, avec un parseur capable de traiter des structures imbriquées complexes.</li>
-                    <li><i class="fas fa-check-circle"></i> <strong>Validation complète et exhaustive</strong> des structures temporelles, incluant des vérifications de cohérence sémantique.</li>
-                    <li><i class="fas fa-check-circle"></i> <strong>Simulation d'événements chronologiques</strong> avec une précision temporelle exceptionnelle.</li>
-                    <li><i class="fas fa-check-circle"></i> <strong>Système d'héritage hiérarchique sophistiqué</strong> entre cibles (targets).</li>
-                    <li><i class="fas fa-check-circle"></i> <strong>Génération automatisée de rapports détaillés</strong> en format JSON.</li>
-                    <li><i class="fas fa-check-circle"></i> <strong>Interface en ligne de commande complète</strong> (CLI) avec des options de configuration étendues.</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>Advanced syntactic and lexical analysis</strong> of the Zenith language, with a parser capable of processing complex nested structures.</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>Complete and exhaustive validation</strong> of temporal structures, including semantic consistency checks.</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>Chronological event simulation</strong> with exceptional temporal precision.</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>Sophisticated hierarchical inheritance system</strong> between targets.</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>Automated generation of detailed reports</strong> in JSON format.</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>Complete command line interface</strong> (CLI) with extensive configuration options.</li>
                 </ul>
                 
-                <h3>Installation et configuration</h3>
+                <h3>Installation and configuration</h3>
                 
-                <h4>Installation via PyPI (recommandée)</h4>
+                <h4>Installation via PyPI (recommended)</h4>
                 <div class="code-container">
                     <div class="code-header">
                         <span>Bash</span>
-                        <button class="copy-btn">Copier</button>
+                        <button class="copy-btn">Copy</button>
                     </div>
                     <pre><code>pip install zenith-analyser</code></pre>
                 </div>
                 
-                <h4>Installation depuis GitHub</h4>
+                <h4>Installation from GitHub</h4>
                 <div class="code-container">
                     <div class="code-header">
                         <span>Bash</span>
-                        <button class="copy-btn">Copier</button>
+                        <button class="copy-btn">Copy</button>
                     </div>
                     <pre><code>git clone https://github.com/frasasu/zenith-analyser
 cd zenith-analyser
@@ -613,51 +613,51 @@ pip install -e .</code></pre>
             
             <!-- Architecture -->
             <section id="architecture">
-                <h2><i class="fas fa-sitemap"></i> Architecture de la bibliothèque</h2>
+                <h2><i class="fas fa-sitemap"></i> Library Architecture</h2>
                 
-                <p>L'architecture de Zenith Analyser a été méticuleusement conçue selon les principes de séparation des préoccupations et de responsabilité unique. Chaque module a une fonction bien définie et des interfaces claires avec les autres composants du système.</p>
+                <p>The architecture of Zenith Analyzer has been meticulously designed according to the principles of separation of concerns and single responsibility. Each module has a well-defined function and clear interfaces with other system components.</p>
                 
-                <h3>Modules principaux et leurs responsabilités</h3>
+                <h3>Main modules and their responsibilities</h3>
                 
                 <table>
                     <thead>
                         <tr>
                             <th>Module</th>
-                            <th>Description et responsabilités principales</th>
+                            <th>Description and main responsibilities</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td><code>analyzers.py</code></td>
-                            <td>Cœur analytique du système, contenant les classes principales qui orchestrent l'analyse complète des structures temporelles.</td>
+                            <td>Analytical heart of the system, containing the main classes that orchestrate the complete analysis of temporal structures.</td>
                         </tr>
                         <tr>
                             <td><code>lexer.py</code></td>
-                            <td>Responsable de l'analyse lexicale, transformant le flux de caractères brut en une séquence de tokens significatifs.</td>
+                            <td>Responsible for lexical analysis, transforming the raw character stream into a meaningful sequence of tokens.</td>
                         </tr>
                         <tr>
                             <td><code>parser.py</code></td>
-                            <td>Implémente l'analyse syntaxique, construisant un Arbre de Syntaxe Abstraite (AST) à partir de la séquence de tokens.</td>
+                            <td>Implements syntactic analysis, building an Abstract Syntax Tree (AST) from the token sequence.</td>
                         </tr>
                         <tr>
                             <td><code>validator.py</code></td>
-                            <td>Fournit des mécanismes de validation sémantique complets, vérifiant la cohérence temporelle et l'existence des références.</td>
+                            <td>Provides complete semantic validation mechanisms, checking temporal consistency and reference existence.</td>
                         </tr>
                         <tr>
                             <td><code>cli.py</code></td>
-                            <td>Implémente l'interface en ligne de commande complète avec des sous-commandes pour l'analyse, la validation, et la conversion.</td>
+                            <td>Implements the complete command line interface with subcommands for analysis, validation, and conversion.</td>
                         </tr>
                     </tbody>
                 </table>
                 
-                <h3>Flux de traitement détaillé</h3>
-                <p>Le flux de traitement des données dans Zenith Analyser suit une séquence logique et prédictible qui garantit la transformation progressive et contrôlée du code source initial en analyses détaillées et exploitables.</p>
+                <h3>Detailed processing flow</h3>
+                <p>The data processing flow in Zenith Analyzer follows a logical and predictable sequence that ensures the progressive and controlled transformation of the initial source code into detailed and exploitable analyses.</p>
                 
                 <div class="interactive-demo">
-                    <h4><i class="fas fa-play-circle"></i> Diagramme du flux de traitement</h4>
+                    <h4><i class="fas fa-play-circle"></i> Processing Flow Diagram</h4>
                     <div style="text-align: center; margin: 1.5rem 0; padding: 1.5rem; background: white; border-radius: var(--border-radius);">
                         <div style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 1rem;">
-                            <div style="padding: 1rem; background: var(--light-blue); border-radius: var(--border-radius); font-weight: bold;">Code Zenith</div>
+                            <div style="padding: 1rem; background: var(--light-blue); border-radius: var(--border-radius); font-weight: bold;">Zenith Code</div>
                             <i class="fas fa-arrow-right"></i>
                             <div style="padding: 1rem; background: #e8f4fc; border-radius: var(--border-radius); font-weight: bold;">Tokens</div>
                             <i class="fas fa-arrow-right"></i>
@@ -669,137 +669,137 @@ pip install -e .</code></pre>
                         </div>
                     </div>
                     <div class="demo-controls">
-                        <button class="demo-btn" onclick="showStep(1)">Étape 1: Lexer</button>
-                        <button class="demo-btn" onclick="showStep(2)">Étape 2: Parser</button>
-                        <button class="demo-btn" onclick="showStep(3)">Étape 3: Validator</button>
-                        <button class="demo-btn" onclick="showStep(4)">Étape 4: Simulation</button>
+                        <button class="demo-btn" onclick="showStep(1)">Step 1: Lexer</button>
+                        <button class="demo-btn" onclick="showStep(2)">Step 2: Parser</button>
+                        <button class="demo-btn" onclick="showStep(3)">Step 3: Validator</button>
+                        <button class="demo-btn" onclick="showStep(4)">Step 4: Simulation</button>
                     </div>
                 </div>
             </section>
             
-            <!-- Langage Zenith -->
-            <section id="langage">
-                <h2><i class="fas fa-code"></i> Le langage Zenith : Concepts fondamentaux</h2>
+            <!-- Zenith Language -->
+            <section id="language">
+                <h2><i class="fas fa-code"></i> The Zenith Language: Fundamental Concepts</h2>
                 
-                <p>Le langage Zenith représente l'interface déclarative primaire entre l'utilisateur et le système d'analyse. Conçu spécifiquement pour décrire des structures temporelles complexes, il adopte une approche de programmation déclarative où l'utilisateur spécifie <em>ce qui</em> doit être modélisé plutôt que <em>comment</em> le modéliser.</p>
+                <p>The Zenith language represents the primary declarative interface between the user and the analysis system. Specifically designed to describe complex temporal structures, it adopts a declarative programming approach where the user specifies <em>what</em> should be modeled rather than <em>how</em> to model it.</p>
                 
-                <h3>Structure fondamentale</h3>
-                <p>Un document Zenith typique consiste en une collection hiérarchique de <strong>lois</strong> (<code>law</code>) et de <strong>cibles</strong> (<code>target</code>), organisées selon une structure arborescente qui reflète les relations logiques et temporelles du système modélisé.</p>
+                <h3>Fundamental structure</h3>
+                <p>A typical Zenith document consists of a hierarchical collection of <strong>laws</strong> (<code>law</code>) and <strong>targets</strong> (<code>target</code>), organized in a tree structure that reflects the logical and temporal relationships of the modeled system.</p>
                 
-                <h4>Exemple de loi Zenith</h4>
+                <h4>Example of a Zenith law</h4>
                 <div class="code-container">
                     <div class="code-header">
                         <span>Zenith</span>
-                        <button class="copy-btn">Copier</button>
+                        <button class="copy-btn">Copy</button>
                     </div>
-                    <pre><code><span class="keyword">law</span> nom_de_la_loi:
+                    <pre><code><span class="keyword">law</span> law_name:
     start_date:2024-03-15 at 09:30
     period:2h45
     Event:
-        reunion_ouverture:"Réunion d'ouverture et présentation des objectifs"
-        session_travail:"Session de travail collaborative"
-        pause_cafe:"Pause café et réseautage"
-    <span class="keyword">GROUP</span>:(reunion_ouverture 45m^10m - session_travail 60m^15m - pause_cafe 30m^5m)
+        opening_meeting:"Opening meeting and presentation of objectives"
+        work_session:"Collaborative work session"
+        coffee_break:"Coffee break and networking"
+    <span class="keyword">GROUP</span>:(opening_meeting 45m^10m - work_session 60m^15m - coffee_break 30m^5m)
 <span class="keyword">end_law</span></code></pre>
                 </div>
                 
-                <h4>Exemple de cible avec hiérarchie</h4>
+                <h4>Example of a target with hierarchy</h4>
                 <div class="code-container">
                     <div class="code-header">
                         <span>Zenith</span>
-                        <button class="copy-btn">Copier</button>
+                        <button class="copy-btn">Copy</button>
                     </div>
-                    <pre><code><span class="keyword">target</span> projet_principal:
+                    <pre><code><span class="keyword">target</span> main_project:
     key:"PROJ-2024-001"
-    dictionnary:
-        revue_hebdo:"Revue hebdomadaire des progrès et des défis"
-        atelier_tech:"Atelier technique sur les nouvelles technologies"
+    dictionary:
+        weekly_review:"Weekly progress and challenges review"
+        tech_workshop:"Technical workshop on new technologies"
     
-    <span class="keyword">law</span> planification_phase1:
+    <span class="keyword">law</span> phase1_planning:
         start_date:2024-04-01 at 08:00
         period:3h
         Event:
-            brief_journee:"Briefing de la journée et répartition des tâches"
-            travail_individuel:"Travail individuel sur les tâches assignées"
-        <span class="keyword">GROUP</span>:(brief_journee 30m^0 - travail_individuel 120m^15m)
+            day_briefing:"Day briefing and task distribution"
+            individual_work:"Individual work on assigned tasks"
+        <span class="keyword">GROUP</span>:(day_briefing 30m^0 - individual_work 120m^15m)
     <span class="keyword">end_law</span>
 <span class="keyword">end_target</span></code></pre>
                 </div>
                 
-                <h3>Concepts temporels fondamentaux</h3>
+                <h3>Fundamental temporal concepts</h3>
                 <ul>
-                    <li><strong>Chronocoherence</strong> : Durée effective d'un événement</li>
-                    <li><strong>Chronodispersion</strong> : Intervalle temporel entre la fin d'un événement et le début du suivant</li>
-                    <li><strong>Séquencement</strong> : Ordre des événements dans un groupe</li>
-                    <li><strong>Complétude temporelle</strong> : Somme des chronocoherences et chronodispersions</li>
+                    <li><strong>Chronocoherence</strong> : Effective duration of an event</li>
+                    <li><strong>Chronodispersion</strong> : Time interval between the end of one event and the start of the next</li>
+                    <li><strong>Sequencing</strong> : Order of events in a group</li>
+                    <li><strong>Temporal completeness</strong> : Sum of chronocoherences and chronodispersions</li>
                 </ul>
             </section>
             
-            <!-- API Principale -->
+            <!-- Main API -->
             <section id="api">
-                <h2><i class="fas fa-cogs"></i> API Principale : Guide de référence</h2>
+                <h2><i class="fas fa-cogs"></i> Main API: Reference Guide</h2>
                 
-                <h3>ZenithAnalyser : Le point d'entrée central</h3>
-                <p>La classe <code>ZenithAnalyser</code> constitue le point d'entrée principal et le coordinateur central de toute l'infrastructure d'analyse. Elle orchestre l'ensemble du pipeline de traitement.</p>
+                <h3>ZenithAnalyzer: The central entry point</h3>
+                <p>The <code>ZenithAnalyzer</code> class constitutes the main entry point and central coordinator of the entire analysis infrastructure. It orchestrates the entire processing pipeline.</p>
                 
-                <h4>Initialisation</h4>
+                <h4>Initialization</h4>
                 <div class="code-container">
                     <div class="code-header">
                         <span>Python</span>
-                        <button class="copy-btn">Copier</button>
+                        <button class="copy-btn">Copy</button>
                     </div>
-                    <pre><code><span class="keyword">from</span> zenith.analyzers <span class="keyword">import</span> ZenithAnalyser
+                    <pre><code><span class="keyword">from</span> zenith.analyzers <span class="keyword">import</span> ZenithAnalyzer
 
-<span class="comment"># Chargement du code source</span>
+<span class="comment"># Loading source code</span>
 <span class="keyword">with</span> <span class="function">open</span>(<span class="string">"model.zen"</span>, <span class="string">"r"</span>, encoding=<span class="string">"utf-8"</span>) <span class="keyword">as</span> source_file:
     zenith_code = source_file.<span class="function">read</span>()
 
-<span class="comment"># Création de l'instance d'analyseur</span>
-analyser = <span class="function">ZenithAnalyser</span>(zenith_code)
+<span class="comment"># Creating analyzer instance</span>
+analyzer = <span class="function">ZenithAnalyzer</span>(zenith_code)
 
-<span class="comment"># Vérification des erreurs</span>
-<span class="keyword">if</span> analyser.parser_errors:
-    <span class="function">print</span>(<span class="string">f"Erreurs de parsing détectées: {<span class="function">len</span>(analyser.parser_errors)}"</span>)</code></pre>
+<span class="comment"># Checking for errors</span>
+<span class="keyword">if</span> analyzer.parser_errors:
+    <span class="function">print</span>(<span class="string">f"Parsing errors detected: {<span class="function">len</span>(analyzer.parser_errors)}"</span>)</code></pre>
                 </div>
                 
-                <h4>Méthodes principales</h4>
+                <h4>Main methods</h4>
                 <div class="code-container">
                     <div class="code-header">
                         <span>Python</span>
-                        <button class="copy-btn">Copier</button>
+                        <button class="copy-btn">Copy</button>
                     </div>
-                    <pre><code><span class="comment"># Analyse d'une loi spécifique</span>
-analysis = analyser.<span class="function">law_description</span>(<span class="string">"sprint_planning"</span>)
+                    <pre><code><span class="comment"># Analysis of a specific law</span>
+analysis = analyzer.<span class="function">law_description</span>(<span class="string">"sprint_planning"</span>)
 
-<span class="comment"># Analyse d'une cible</span>
-target_analysis = analyser.<span class="function">target_description</span>(<span class="string">"projet_principal"</span>)
+<span class="comment"># Analysis of a target</span>
+target_analysis = analyzer.<span class="function">target_description</span>(<span class="string">"main_project"</span>)
 
-<span class="comment"># Analyse par niveau de population</span>
-population_analysis = analyser.<span class="function">population_description</span>(<span class="number">2</span>)
+<span class="comment"># Analysis by population level</span>
+population_analysis = analyzer.<span class="function">population_description</span>(<span class="number">2</span>)
 
-<span class="comment"># Analyse complète du corpus</span>
-corpus_analysis = analyser.<span class="function">analyze_corpus</span>()
+<span class="comment"># Complete corpus analysis</span>
+corpus_analysis = analyzer.<span class="function">analyze_corpus</span>()
 
-<span class="comment"># Export JSON</span>
-analyser.<span class="function">export_json</span>(<span class="string">"analysis.json"</span>)</code></pre>
+<span class="comment"># JSON export</span>
+analyzer.<span class="function">export_json</span>(<span class="string">"analysis.json"</span>)</code></pre>
                 </div>
             </section>
             
             <!-- Simulation -->
             <section id="simulation">
-                <h2><i class="fas fa-clock"></i> Simulation temporelle avancée</h2>
+                <h2><i class="fas fa-clock"></i> Advanced Temporal Simulation</h2>
                 
-                <p>Le système de simulation temporelle de Zenith Analyser repose sur une conception rigoureuse qui garantit la précision chronologique tout en maintenant la flexibilité nécessaire pour modéliser des scénarios complexes.</p>
+                <p>The temporal simulation system of Zenith Analyzer relies on a rigorous design that guarantees chronological accuracy while maintaining the flexibility needed to model complex scenarios.</p>
                 
-                <h3>Représentation des durées et intervalles</h3>
+                <h3>Duration and interval representation</h3>
                 <div class="code-container">
                     <div class="code-header">
                         <span>Python</span>
-                        <button class="copy-btn">Copier</button>
+                        <button class="copy-btn">Copy</button>
                     </div>
                     <pre><code><span class="keyword">from</span> zenith.utils <span class="keyword">import</span> point_to_minutes, minutes_to_point
 
-<span class="comment"># Conversion de durées</span>
+<span class="comment"># Duration conversion</span>
 durations = [<span class="string">"30m"</span>, <span class="string">"2h"</span>, <span class="string">"1h30m"</span>, <span class="string">"45"</span>, <span class="string">"2h15m"</span>]
 
 <span class="keyword">for</span> duration_str <span class="keyword">in</span> durations:
@@ -808,118 +808,119 @@ durations = [<span class="string">"30m"</span>, <span class="string">"2h"</span>
     <span class="function">print</span>(<span class="string">f"{duration_str} → {minutes} minutes → {reconverted}"</span>)</code></pre>
                 </div>
                 
-                <h3>Simulation d'événements complexes</h3>
+                <h3>Complex event simulation</h3>
                 <div class="code-container">
                     <div class="code-header">
                         <span>Python</span>
-                        <button class="copy-btn">Copier</button>
+                        <button class="copy-btn">Copy</button>
                     </div>
-                    <pre><code><span class="keyword">def</span> <span class="function">simulate_law_complete</span>(analyser, law_name):
-    <span class="comment">"""Simulation complète d'une loi avec analyse détaillée."""</span>
+                    <pre><code><span class="keyword">def</span> <span class="function">simulate_law_complete</span>(analyzer, law_name):
+    <span class="comment">"""Complete simulation of a law with detailed analysis."""</span>
     <span class="keyword">try</span>:
-        <span class="comment"># Récupération des données de la loi</span>
-        law_data = analyser.law_analyser.<span class="function">get_law</span>(law_name)
+        <span class="comment"># Retrieving law data</span>
+        law_data = analyzer.law_analyzer.<span class="function">get_law</span>(law_name)
         
-        <span class="comment"># Simulation des événements</span>
-        simulated_events = analyser.<span class="function">_simulate_law_events</span>(law_data, dict_map)
+        <span class="comment"># Event simulation</span>
+        simulated_events = analyzer.<span class="function">_simulate_law_events</span>(law_data, dict_map)
         
-        <span class="function">print</span>(<span class="string">f"Nombre d'événements simulés: {<span class="function">len</span>(simulated_events)}"</span>)
+        <span class="function">print</span>(<span class="string">f"Number of simulated events: {<span class="function">len</span>(simulated_events)}"</span>)
         
         <span class="keyword">return</span> simulated_events
         
     <span class="keyword">except</span> Exception <span class="keyword">as</span> e:
-        <span class="function">print</span>(<span class="string">f"Erreur lors de la simulation: {e}"</span>)
+        <span class="function">print</span>(<span class="string">f"Error during simulation: {e}"</span>)
         <span class="keyword">return</span> <span class="keyword">None</span></code></pre>
                 </div>
             </section>
             
-            <!-- Héritage -->
-            <section id="heritage">
-                <h2><i class="fas fa-project-diagram"></i> Héritage hiérarchique</h2>
+            <!-- Inheritance -->
+            <section id="inheritance">
+                <h2><i class="fas fa-project-diagram"></i> Hierarchical Inheritance</h2>
                 
-                <p>Le système d'héritage hiérarchique de Zenith Analyser constitue l'une de ses fonctionnalités les plus puissantes et distinctives. Il permet de modéliser des relations complexes entre différentes parties d'un système temporel.</p>
+                <p>The hierarchical inheritance system of Zenith Analyzer constitutes one of its most powerful and distinctive features. It allows modeling complex relationships between different parts of a temporal system.</p>
                 
-                <h3>Hiérarchie des cibles</h3>
+                <h3>Target hierarchy</h3>
                 <div class="code-container">
                     <div class="code-header">
                         <span>Python</span>
-                        <button class="copy-btn">Copier</button>
+                        <button class="copy-btn">Copy</button>
                     </div>
-                    </div><pre><code><span class="keyword">def</span> <span class="function">analyze_complete_hierarchy</span>(analyser):
-    target_analyser = analyser.target_analyser
+                    <pre><code><span class="keyword">def</span> <span class="function">analyze_complete_hierarchy</span>(analyzer):
+    target_analyzer = analyzer.target_analyzer
     
-    <span class="comment"># Structure hiérarchique globale</span>
-    max_depth = target_analyser.<span class="function">get_max_generation</span>()
-    <span class="function">print</span>(<span class="string">f"Profondeur maximale: {max_depth} niveaux"</span>)
+    <span class="comment"># Global hierarchical structure</span>
+    max_depth = target_analyzer.<span class="function">get_max_generation</span>()
+    <span class="function">print</span>(<span class="string">f"Maximum depth: {max_depth} levels"</span>)
     
     <span class="keyword">for</span> depth <span class="keyword">in</span> <span class="function">range</span>(<span class="number">1</span>, max_depth + <span class="number">1</span>):
-        targets_at_level = target_analyser.<span class="function">get_targets_by_generation</span>(depth)
-        <span class="function">print</span>(<span class="string">f"Niveau {depth}: {<span class="function">len</span>(targets_at_level)} cibles"</span>)</code></pre>
+        targets_at_level = target_analyzer.<span class="function">get_targets_by_generation</span>(depth)
+        <span class="function">print</span>(<span class="string">f"Level {depth}: {<span class="function">len</span>(targets_at_level)} targets"</span>)</code></pre>
+                </div>
                 
-                <h3>Résolution d'héritage</h3>
+                <h3>Inheritance resolution</h3>
                 <div class="code-container">
                     <div class="code-header">
                         <span>Python</span>
-                        <button class="copy-btn">Copier</button>
+                        <button class="copy-btn">Copy</button>
                     </div>
-                    <pre><code><span class="keyword">def</span> <span class="function">analyze_inheritance_resolution</span>(analyser, target_name):
-    <span class="comment">"""Analyse détaillée de la résolution d'héritage."""</span>
+                    <pre><code><span class="keyword">def</span> <span class="function">analyze_inheritance_resolution</span>(analyzer, target_name):
+    <span class="comment">"""Detailed analysis of inheritance resolution."""</span>
     
-    <span class="comment"># Dictionnaire local</span>
+    <span class="comment"># Local dictionary</span>
     local_dict = {item[<span class="string">'name'</span>]: item.<span class="function">get</span>(<span class="string">'description'</span>, <span class="string">''</span>) 
-                  <span class="keyword">for</span> item <span class="keyword">in</span> target_data.<span class="function">get</span>(<span class="string">'dictionnary'</span>, [])}
+                  <span class="keyword">for</span> item <span class="keyword">in</span> target_data.<span class="function">get</span>(<span class="string">'dictionary'</span>, [])}
     
-    <span class="comment"># Dictionnaire résolu (local écrase hérité)</span>
+    <span class="comment"># Resolved dictionary (local overrides inherited)</span>
     resolved_dict = {**inherited_dict, **local_dict}
     
-    <span class="comment"># Conflits de résolution</span>
+    <span class="comment"># Resolution conflicts</span>
     conflicts = <span class="function">set</span>(local_dict.<span class="function">keys</span>()) & <span class="function">set</span>(inherited_dict.<span class="function">keys</span>())
     
     <span class="keyword">if</span> conflicts:
-        <span class="function">print</span>(<span class="string">f"Conflits résolus: {<span class="function">len</span>(conflicts)}"</span>)</code></pre>
+        <span class="function">print</span>(<span class="string">f"Resolved conflicts: {<span class="function">len</span>(conflicts)}"</span>)</code></pre>
                 </div>
             </section>
             
             <!-- CLI -->
             <section id="cli">
-                <h2><i class="fas fa-terminal"></i> Interface en ligne de commande (CLI)</h2>
+                <h2><i class="fas fa-terminal"></i> Command Line Interface (CLI)</h2>
                 
-                <p>L'interface en ligne de commande de Zenith Analyser a été conçue pour offrir une expérience utilisateur intuitive tout en fournissant un accès complet à toutes les fonctionnalités avancées de la bibliothèque.</p>
+                <p>The command line interface of Zenith Analyzer has been designed to offer an intuitive user experience while providing complete access to all the library's advanced features.</p>
                 
-                <h3>Commandes principales</h3>
+                <h3>Main commands</h3>
                 <div class="code-container">
                     <div class="code-header">
                         <span>Bash</span>
-                        <button class="copy-btn">Copier</button>
+                        <button class="copy-btn">Copy</button>
                     </div>
-                    <pre><code><span class="comment"># Affichage de l'aide générale</span>
+                    <pre><code><span class="comment"># Display general help</span>
 zenith --help
 
-<span class="comment"># Version du logiciel</span>
+<span class="comment"># Software version</span>
 zenith version
 
-<span class="comment"># Analyse de code Zenith</span>
+<span class="comment"># Analysis of Zenith code</span>
 zenith analyze model.zen -o analysis.json
 
-<span class="comment"># Validation syntaxique</span>
+<span class="comment"># Syntactic validation</span>
 zenith validate model.zen
 
-<span class="comment"># Conversion entre formats</span>
+<span class="comment"># Conversion between formats</span>
 zenith convert model.zen analysis.json --from zenith --to json</code></pre>
                 </div>
                 
-                <h3>Exemples pratiques</h3>
+                <h3>Practical examples</h3>
                 <div class="code-container">
                     <div class="code-header">
                         <span>Bash</span>
-                        <button class="copy-btn">Copier</button>
+                        <button class="copy-btn">Copy</button>
                     </div>
-                    <pre><code><span class="comment"># Pipeline d'analyse automatisé</span>
+                    <pre><code><span class="comment"># Automated analysis pipeline</span>
 <span class="keyword">if</span> zenith validate project_model.zen --strict; <span class="keyword">then</span>
     zenith analyze project_model.zen --format json -o project_analysis.json
 <span class="keyword">fi</span>
 
-<span class="comment"># Analyse avec options avancées</span>
+<span class="comment"># Analysis with advanced options</span>
 zenith analyze complex_model.zen \
     --target department_alpha \
     --population <span class="number">3</span> \
@@ -929,17 +930,17 @@ zenith analyze complex_model.zen \
                 </div>
             </section>
             
-            <!-- Intégration -->
+            <!-- Integration -->
             <section id="integration">
-                <h2><i class="fas fa-link"></i> Format de sortie et intégration</h2>
+                <h2><i class="fas fa-link"></i> Output Format and Integration</h2>
                 
-                <p>Les sorties JSON de Zenith Analyser suivent une structure rigoureuse et documentée qui facilite l'intégration avec d'autres systèmes. Cette structure a été conçue pour être à la fois riche en informations et facile à parser par des outils automatisés.</p>
+                <p>The JSON outputs of Zenith Analyzer follow a rigorous and documented structure that facilitates integration with other systems. This structure has been designed to be both rich in information and easy to parse by automated tools.</p>
                 
-                <h3>Structure JSON détaillée</h3>
+                <h3>Detailed JSON structure</h3>
                 <div class="code-container">
                     <div class="code-header">
                         <span>JSON</span>
-                        <button class="copy-btn">Copier</button>
+                        <button class="copy-btn">Copy</button>
                     </div>
                     <pre><code>{
     "<span class="keyword">metadata</span>": {
@@ -963,24 +964,24 @@ zenith analyze complex_model.zen \
 }</code></pre>
                 </div>
                 
-                <h3>Intégration avec des bases de données</h3>
+                <h3>Integration with databases</h3>
                 <div class="code-container">
                     <div class="code-header">
                         <span>Python</span>
-                        <button class="copy-btn">Copier</button>
+                        <button class="copy-btn">Copy</button>
                     </div>
                     <pre><code><span class="keyword">import</span> sqlite3
 <span class="keyword">import</span> json
 
 <span class="keyword">class</span> <span class="class-name">ZenithDatabase</span>:
-    <span class="string">"""Classe pour l'intégration avec une base de données."""</span>
+    <span class="string">"""Class for database integration."""</span>
     
     <span class="keyword">def</span> <span class="function">__init__</span>(<span class="keyword">self</span>, db_path=<span class="string">"zenith_analysis.db"</span>):
         <span class="keyword">self</span>.db_path = db_path
         <span class="keyword">self</span>.<span class="function">_init_database</span>()
     
     <span class="keyword">def</span> <span class="function">store_analysis</span>(<span class="keyword">self</span>, analysis_json):
-        <span class="string">"""Stocke une analyse complète dans la base de données."""</span>
+        <span class="string">"""Stores a complete analysis in the database."""</span>
         <span class="keyword">with</span> sqlite3.<span class="function">connect</span>(<span class="keyword">self</span>.db_path) <span class="keyword">as</span> conn:
             cursor = conn.<span class="function">cursor</span>()
             cursor.<span class="function">execute</span>(<span class="string">"""
@@ -995,44 +996,44 @@ zenith analyze complex_model.zen \
             
             <!-- Conclusion -->
             <section id="conclusion">
-                <h2><i class="fas fa-flag-checkered"></i> Conclusion et perspectives</h2>
+                <h2><i class="fas fa-flag-checkered"></i> Conclusion and Perspectives</h2>
                 
-                <h3>Synthèse des capacités actuelles</h3>
-                <p>Zenith Analyser s'est imposé comme une solution complète et sophistiquée pour l'analyse de structures temporelles complexes. À travers cette documentation exhaustive, nous avons exploré les multiples facettes de cette bibliothèque remarquable.</p>
+                <h3>Summary of current capabilities</h3>
+                <p>Zenith Analyzer has established itself as a complete and sophisticated solution for the analysis of complex temporal structures. Through this exhaustive documentation, we have explored the multiple facets of this remarkable library.</p>
                 
                 <ul>
-                    <li><strong>Analyse lexicale et syntaxique avancée</strong> : Pipeline de traitement robuste capable de transformer du code Zenith déclaratif en structures de données exploitables.</li>
-                    <li><strong>Modélisation temporelle précise</strong> : Système de simulation d'événements permettant de modéliser des chronologies complexes.</li>
-                    <li><strong>Héritage hiérarchique sophistiqué</strong> : Mécanisme d'héritage entre cibles offrant une flexibilité remarquable.</li>
-                    <li><strong>Interface utilisateur complète</strong> : Combinaison d'une API Python riche et d'une interface en ligne de commande puissante.</li>
+                    <li><strong>Advanced lexical and syntactic analysis</strong> : Robust processing pipeline capable of transforming declarative Zenith code into exploitable data structures.</li>
+                    <li><strong>Precise temporal modeling</strong> : Event simulation system allowing the modeling of complex chronologies.</li>
+                    <li><strong>Sophisticated hierarchical inheritance</strong> : Inheritance mechanism between targets offering remarkable flexibility.</li>
+                    <li><strong>Complete user interface</strong> : Combination of a rich Python API and a powerful command line interface.</li>
                 </ul>
                 
-                <h3>Perspectives de développement futures</h3>
+                <h3>Future development perspectives</h3>
                 <div class="info-box">
-                    <h4><i class="fas fa-road"></i> Feuille de route</h4>
+                    <h4><i class="fas fa-road"></i> Roadmap</h4>
                     <ul>
-                        <li><strong>Optimisation des performances</strong> : Algorithmes plus efficaces pour le traitement de très grands corpus temporels.</li>
-                        <li><strong>Analyse prédictive</strong> : Intégration de modèles d'apprentissage automatique pour la prédiction de patterns temporels.</li>
-                        <li><strong>Interface graphique</strong> : Développement d'une interface web interactive pour la modélisation visuelle.</li>
-                        <li><strong>API REST</strong> : Exposition des fonctionnalités d'analyse via une API web.</li>
+                        <li><strong>Performance optimization</strong> : More efficient algorithms for processing very large temporal corpora.</li>
+                        <li><strong>Predictive analysis</strong> : Integration of machine learning models for temporal pattern prediction.</li>
+                        <li><strong>Graphical interface</strong> : Development of an interactive web interface for visual modeling.</li>
+                        <li><strong>REST API</strong> : Exposure of analysis functionalities via a web API.</li>
                     </ul>
                 </div>
                 
-                <h3>Contributions et écosystème</h3>
-                <p>Zenith Analyser est un projet open-source qui bénéficie des contributions d'une communauté croissante d'utilisateurs et de développeurs.</p>
+                <h3>Contributions and ecosystem</h3>
+                <p>Zenith Analyzer is an open-source project that benefits from contributions from a growing community of users and developers.</p>
                 
                 <div class="warning-box">
-                    <p><strong>Ressources supplémentaires :</strong></p>
+                    <p><strong>Additional resources :</strong></p>
                     <ul>
-                        <li><strong>Dépôt GitHub</strong> : <a href="https://github.com/frasasu/zenith-analyser" style="color: var(--accent-blue);">https://github.com/frasasu/zenith-analyser</a></li>
-                        <li><strong>Documentation en ligne</strong> : Documentation complète avec recherche et navigation améliorée (à venir)</li>
-                        <li><strong>Forum de discussion</strong> : Espace d'échange pour les utilisateurs (à venir)</li>
+                        <li><strong>GitHub Repository</strong> : <a href="https://github.com/frasasu/zenith-analyser" style="color: var(--accent-blue);">https://github.com/frasasu/zenith-analyser</a></li>
+                        <li><strong>Online documentation</strong> : Complete documentation with enhanced search and navigation (coming soon)</li>
+                        <li><strong>Discussion forum</strong> : Exchange space for users (coming soon)</li>
                     </ul>
                 </div>
                 
                 <div style="text-align: center; margin: 3rem 0; padding: 2rem; background: linear-gradient(135deg, var(--light-blue), white); border-radius: var(--border-radius);">
-                    <h3 style="color: var(--primary-blue);">Bonne analyse !</h3>
-                    <p>Que vous soyez un utilisateur occasionnel cherchant à planifier des projets simples, ou un expert en analyse temporelle travaillant sur des systèmes complexes, Zenith Analyser offre les outils dont vous avez besoin.</p>
+                    <h3 style="color: var(--primary-blue);">Happy analyzing!</h3>
+                    <p>Whether you're an occasional user looking to plan simple projects, or a temporal analysis expert working on complex systems, Zenith Analyzer offers the tools you need.</p>
                 </div>
             </section>
         </main>
@@ -1040,35 +1041,35 @@ zenith analyze complex_model.zen \
         <!-- Sidebar -->
         <aside class="sidebar">
             <div class="toc">
-                <h3><i class="fas fa-list"></i> Sommaire</h3>
+                <h3><i class="fas fa-list"></i> Table of Contents</h3>
                 <ul id="tocList">
                     <!-- Generated by JavaScript -->
                 </ul>
             </div>
             
             <div class="info-box">
-                <h4><i class="fas fa-download"></i> Téléchargement rapide</h4>
+                <h4><i class="fas fa-download"></i> Quick Download</h4>
                 <div style="margin-top: 1rem;">
                     <button onclick="copyInstallCommand()" style="width: 100%; padding: 0.75rem; background: var(--secondary-blue); color: white; border: none; border-radius: var(--border-radius); cursor: pointer; margin-bottom: 0.5rem;">
-                        <i class="fas fa-copy"></i> Copier la commande d'installation
+                        <i class="fas fa-copy"></i> Copy installation command
                     </button>
                     <button onclick="showQuickStart()" style="width: 100%; padding: 0.75rem; background: var(--success-green); color: white; border: none; border-radius: var(--border-radius); cursor: pointer;">
-                        <i class="fas fa-play"></i> Démarrage rapide
+                        <i class="fas fa-play"></i> Quick Start
                     </button>
                 </div>
             </div>
             
             <div class="info-box">
-                <h4><i class="fas fa-code-branch"></i> Version actuelle</h4>
+                <h4><i class="fas fa-code-branch"></i> Current Version</h4>
                 <p style="text-align: center; font-size: 1.5rem; font-weight: bold; color: var(--primary-blue); margin: 0.5rem 0;">v1.0.0</p>
                 <p style="text-align: center; font-size: 0.9rem; color: var(--medium-gray);">2026 Release</p>
             </div>
             
             <div class="info-box">
                 <h4><i class="fas fa-book"></i> Documentation</h4>
-                <p>Cette documentation est également disponible en format PDF pour impression hors ligne.</p>
+                <p>This documentation is also available in PDF format for offline printing.</p>
                 <button onclick="generatePDF()" style="width: 100%; padding: 0.75rem; background: var(--warning-orange); color: white; border: none; border-radius: var(--border-radius); cursor: pointer; margin-top: 0.5rem;">
-                    <i class="fas fa-file-pdf"></i> Générer PDF
+                    <i class="fas fa-file-pdf"></i> Generate PDF
                 </button>
             </div>
         </aside>
@@ -1078,36 +1079,36 @@ zenith analyze complex_model.zen \
     <footer>
         <div class="footer-content">
             <div class="footer-section">
-                <h3>Zenith Analyser</h3>
-                <p>Solution innovante pour l'analyse, la simulation et la gestion de structures temporelles complexes.</p>
-                <p>Distribué sous licence Apache 2.0</p>
+                <h3>Zenith Analyzer</h3>
+                <p>Innovative solution for the analysis, simulation and management of complex temporal structures.</p>
+                <p>Distributed under Apache 2.0 license</p>
             </div>
             
             <div class="footer-section">
-                <h3>Liens rapides</h3>
+                <h3>Quick Links</h3>
                 <ul class="footer-links">
                     <li><a href="#introduction">Introduction</a></li>
                     <li><a href="#architecture">Architecture</a></li>
-                    <li><a href="#langage">Langage Zenith</a></li>
-                    <li><a href="#api">API Principale</a></li>
+                    <li><a href="#language">Zenith Language</a></li>
+                    <li><a href="#api">Main API</a></li>
                     <li><a href="#simulation">Simulation</a></li>
                 </ul>
             </div>
             
             <div class="footer-section">
-                <h3>Ressources</h3>
+                <h3>Resources</h3>
                 <ul class="footer-links">
                     <li><a href="https://github.com/frasasu/zenith-analyser" target="_blank">GitHub Repository</a></li>
-                    <li><a href="#" onclick="showExamples()">Exemples de code</a></li>
+                    <li><a href="#" onclick="showExamples()">Code examples</a></li>
                     <li><a href="#" onclick="showFAQ()">FAQ</a></li>
                     <li><a href="#" onclick="showContact()">Contact</a></li>
                 </ul>
             </div>
             
             <div class="footer-section">
-                <h3>À propos</h3>
-                <p>Développé par François TUMUSAVYEYESU</p>
-                <p>Documentation technique complète - 2026</p>
+                <h3>About</h3>
+                <p>Developed by François TUMUSAVYEYESU</p>
+                <p>Complete technical documentation - 2026</p>
                 <div style="margin-top: 1rem;">
                     <a href="#" style="color: white; margin-right: 1rem;"><i class="fab fa-github fa-lg"></i></a>
                     <a href="#" style="color: white; margin-right: 1rem;"><i class="fab fa-python fa-lg"></i></a>
@@ -1117,8 +1118,8 @@ zenith analyze complex_model.zen \
         </div>
         
         <div class="copyright">
-            <p>&copy; 2026 Zenith Analyser. Tous droits réservés.</p>
-            <p>Cette documentation est mise à jour régulièrement. Dernière mise à jour : Janvier 2026</p>
+            <p>&copy; 2026 Zenith Analyzer. All rights reserved.</p>
+            <p>This documentation is updated regularly. Last update: January 2026</p>
         </div>
     </footer>
     
@@ -1222,7 +1223,7 @@ zenith analyze complex_model.zen \
                     
                     navigator.clipboard.writeText(textToCopy).then(() => {
                         const originalText = this.textContent;
-                        this.textContent = 'Copié!';
+                        this.textContent = 'Copied!';
                         this.style.background = 'var(--success-green)';
                         
                         setTimeout(() => {
@@ -1264,10 +1265,10 @@ zenith analyze complex_model.zen \
         // Interactive demo functions
         function showStep(step) {
             const steps = [
-                "Étape 1: Analyse lexicale (Lexer) - Transformation du code source en tokens élémentaires.",
-                "Étape 2: Analyse syntaxique (Parser) - Construction de l'Arbre de Syntaxe Abstraite (AST).",
-                "Étape 3: Validation sémantique - Vérification de la cohérence logique et temporelle.",
-                "Étape 4: Simulation et analyse - Génération des chronologies et calcul des métriques."
+                "Step 1: Lexical analysis (Lexer) - Transformation of source code into elementary tokens.",
+                "Step 2: Syntactic analysis (Parser) - Construction of the Abstract Syntax Tree (AST).",
+                "Step 3: Semantic validation - Verification of logical and temporal consistency.",
+                "Step 4: Simulation and analysis - Generation of chronologies and calculation of metrics."
             ];
             
             alert(steps[step - 1]);
@@ -1276,53 +1277,53 @@ zenith analyze complex_model.zen \
         // Utility functions
         function copyInstallCommand() {
             navigator.clipboard.writeText('pip install zenith-analyser').then(() => {
-                alert('Commande d\'installation copiée dans le presse-papier!');
+                alert('Installation command copied to clipboard!');
             });
         }
         
         function showQuickStart() {
             const quickStart = `
-DÉMARRAGE RAPIDE ZENITH ANALYSER
+ZENITH ANALYZER QUICK START
 
 1. Installation:
    pip install zenith-analyser
 
-2. Créer un fichier .zen:
-   law mon_premier_modele:
+2. Create a .zen file:
+   law my_first_model:
      start_date:2024-01-01 at 09:00
      period:2h
      Event:
-       reunion:"Réunion de lancement"
-       travail:"Session de travail"
-     GROUP:(reunion 45m^15m - travail 60m^0)
+       meeting:"Kickoff meeting"
+       work:"Work session"
+     GROUP:(meeting 45m^15m - work 60m^0)
    end_law
 
-3. Analyser le modèle:
-   zenith analyze mon_modele.zen --format json
+3. Analyze the model:
+   zenith analyze my_model.zen --format json
 
-4. Explorer avec Python:
-   from zenith.analyzers import ZenithAnalyser
-   analyser = ZenithAnalyser(code_zenith)
-   print(analyser.analyze_corpus())
+4. Explore with Python:
+   from zenith.analyzers import ZenithAnalyzer
+   analyzer = ZenithAnalyzer(zenith_code)
+   print(analyzer.analyze_corpus())
 `;
             alert(quickStart);
         }
         
         function generatePDF() {
-            alert('Fonctionnalité PDF à implémenter. Pour le moment, utilisez l\'impression du navigateur (Ctrl+P).');
+            alert('PDF functionality to be implemented. For now, use browser printing (Ctrl+P).');
             // In a real implementation, this would generate a PDF version
         }
         
         function showExamples() {
-            alert('Exemples disponibles sur le dépôt GitHub: https://github.com/frasasu/zenith-analyser/examples');
+            alert('Examples available on the GitHub repository: https://github.com/frasasu/zenith-analyser/examples');
         }
         
         function showFAQ() {
-            alert('FAQ à venir dans la prochaine version de la documentation.');
+            alert('FAQ coming in the next version of the documentation.');
         }
         
         function showContact() {
-            alert('Pour toute question, ouvrez une issue sur GitHub ou contactez l\'auteur via le dépôt.');
+            alert('For any questions, open an issue on GitHub or contact the author via the repository.');
         }
         
         // Highlight current section in TOC
